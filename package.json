@@ -10,17 +10,9 @@
   "jest": {
     "testEnvironment": "node"
 },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lseg-rahul/lseg-log-monitoring.git"
-  },
   "keywords": [],
   "author": "Rahul Umrao",
   "type": "module",
-  "bugs": {
-    "url": "https://github.com/lseg-rahul/lseg-log-monitoring/issues"
-  },
-  "homepage": "https://github.com/lseg-rahul/lseg-log-monitoring#readme",
   "devDependencies": {
     "jest": "^30.0.5"
   }
