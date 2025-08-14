@@ -82,4 +82,3 @@ ERROR: Job "Job C" (PID: 789) took 12 minutes
 ## Author
 
 Rahul Umrao
-# lseg-log-monitoring
