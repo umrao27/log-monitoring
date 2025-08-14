@@ -4,16 +4,17 @@ import { timeToSeconds } from "../utils/timeUtils.js";
  * Get logs and calculate job duration 
  */
 export function calculateJobDuration(logs) {
-   const jobs = {};
+  const jobs = {};
   const results = [];
 
   for (const log of logs) {
-    if (log.status === "START") {
+    const status = log.status?.trim(); 
+    if (status === "START") {
       jobs[log.pid] = {
         description: log.description,
         startTime: timeToSeconds(log.time),
       };
-    } else if (log.status === "END") {
+    } else if (status === "END") {
       if (jobs[log.pid]) {
         const startTime = jobs[log.pid].startTime;
         const endTime = timeToSeconds(log.time);

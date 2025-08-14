@@ -6,15 +6,17 @@
 export function generateReport(results) {
   const WARNING_THRESHOLD = 5 * 60; 
   const ERROR_THRESHOLD = 10 * 60;  
+  let output = "";
 
   for (const job of results) {
-    convertToMin = (job.durationSec / 60);
+    const convertToMin = (job.durationSec / 60).toFixed(2); // Convert seconds to minutes with 2 decimal places
     if (job.durationSec > ERROR_THRESHOLD) {
-      console.error(`ERROR: Job "${job.description}" (PID: ${job.pid}) took ${convertToMin} minutes`);
+      output += `<b>ERROR</b>: Job "${job.description}" (PID: ${job.pid}) took ${convertToMin} minutes\n </br>` ;
     } else if (job.durationSec > WARNING_THRESHOLD) {
-      console.warn(`WARNING: Job "${job.description}" (PID: ${job.pid}) took ${convertToMin} minutes`);
+       output += `<b>WARNING</b>: Job "${job.description}" (PID: ${job.pid}) took ${convertToMin} minutes\n </br>`;
     } else {
-      console.log(`OK: Job "${job.description}" (PID: ${job.pid}) took ${convertToMin} minutes`);
+       output += `<b>OK</b>: Job "${job.description}" (PID: ${job.pid}) took ${convertToMin} minutes\n </br>`;
     }
   }
+    return output;
 }

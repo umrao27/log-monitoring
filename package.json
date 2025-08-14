@@ -9,11 +9,14 @@
   },
   "jest": {
     "testEnvironment": "node"
-},
+  },
   "keywords": [],
   "author": "Rahul Umrao",
   "type": "module",
   "devDependencies": {
     "jest": "^30.0.5"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }

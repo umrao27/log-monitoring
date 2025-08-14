@@ -48,7 +48,14 @@ LSEG Log Monitoring is a application that reads a CSV log file, parses job event
    npm start
    ```
 
-   The output will display job status messages in the console.
+3. Open your browser and go to [http://localhost:3000](http://localhost:3000) to view the report.
+
+## Project Structure
+
+- `src/index.js` - Main entry point, starts the Express server and print the report.
+- `src/services/parseLogFile.js` - Parses the CSV log file.
+- `src/services/calculateJobDuration.js` - Calculates job durations.
+- `src/services/reportGenerator.js` - Generates the report.
 
 ## Testing
 
@@ -74,9 +81,9 @@ Test files are located in `src/tests/` and cover parsing, duration calculation, 
 ## Example Output
 
 ```
-OK: Job "Job A" (PID: 123) took 5 minutes
-WARNING: Job "Job B" (PID: 456) took 7 minutes
-ERROR: Job "Job C" (PID: 789) took 12 minutes
+OK: Job "scheduled task 032" (PID: 37980) took 0.55 minutes
+WARNING: Job "scheduled task 074" (PID: 71766) took 5.78 minutes
+ERROR: Job "scheduled task 515" (PID: 45135) took 12.38 minutes
 ```
 
 ## Author
