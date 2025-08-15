@@ -1,29 +1,22 @@
 
-import { jest } from '@jest/globals';
 import { generateReport } from '../services/reportGenerator';
 
 describe('generateReport', () => {
-  beforeEach(() => {
-    jest.spyOn(console, 'log').mockImplementation(() => {});
-    jest.spyOn(console, 'warn').mockImplementation(() => {});
-    jest.spyOn(console, 'error').mockImplementation(() => {});
+  it('returns OK for jobs below warning threshold', () => {
+    const jobs = [{ description: 'Job1', pid: 1, durationSec: 200 }];
+    const report = generateReport(jobs);
+    expect(report).toContain('<b>OK</b>: Job "Job1" (PID: 1) took 3.33 minutes');
   });
 
-  it('logs OK for jobs below warning threshold', () => {
-    const jobs = [{ description: 'Job1', pid: 1, durationSec: 200}];
-    generateReport(jobs);
-    expect(console.log).toHaveBeenCalledWith(expect.stringContaining('OK: Job "Job1"'));
+  it('returns WARNING for jobs above warning but below error threshold', () => {
+    const jobs = [{ description: 'Job2', pid: 2, durationSec: 400 }];
+    const report = generateReport(jobs);
+    expect(report).toContain('<b>WARNING</b>: Job "Job2" (PID: 2) took 6.67 minutes');
   });
 
-  it('logs WARNING for jobs above warning but below error threshold', () => {
-    const jobs = [{ description: 'Job2', pid: 2, durationSec: 400}];
-    generateReport(jobs);
-    expect(console.warn).toHaveBeenCalledWith(expect.stringContaining('WARNING: Job "Job2"'));
-  });
-
-  it('logs ERROR for jobs above error threshold', () => {
-    const jobs = [{ description: 'Job3', pid: 3, durationSec: 700}];
-    generateReport(jobs);
-    expect(console.error).toHaveBeenCalledWith(expect.stringContaining('ERROR: Job "Job3"'));
+  it('returns ERROR for jobs above error threshold', () => {
+    const jobs = [{ description: 'Job3', pid: 3, durationSec: 700 }];
+    const report = generateReport(jobs);
+    expect(report).toContain('<b>ERROR</b>: Job "Job3" (PID: 3) took 11.67 minutes');
   });
 });

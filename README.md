@@ -1,8 +1,8 @@
-# LSEG Log Monitoring
+# Log Monitoring
 
 ## Description
 
-LSEG Log Monitoring is a application that reads a CSV log file, parses job events, calculates job durations, and generates a report with warnings or errors if job durations exceed defined thresholds.
+Log Monitoring is a application that reads a CSV log file, parses job events, calculates job durations, and generates a report with warnings or errors if job durations exceed defined thresholds.
 
 ## Features
 
@@ -18,8 +18,8 @@ LSEG Log Monitoring is a application that reads a CSV log file, parses job event
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/lseg-rahul/lseg-log-monitoring.git
-   cd lseg-log-monitoring
+   git clone https://github.com/umrao27/log-monitoring.git
+   cd log-monitoring
    ```
 2. Install dependencies:
    ```bash

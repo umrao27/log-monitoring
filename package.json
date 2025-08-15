@@ -1,5 +1,5 @@
 {
-  "name": "lseg-log-monitoring",
+  "name": "log-monitoring",
   "version": "1.0.0",
   "description": "This is the log monitoring application",
   "main": "index.js",
